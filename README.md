@@ -42,6 +42,7 @@
 > 기존 ionic 웹 프로젝트를 android 프로젝트로 변경
 > ```shell
 > ionic cordova prepare android
+> ionic cordova build android
 > ```
 
 ## 프로젝트 시작
@@ -80,3 +81,18 @@
 
 ### 참조사이트
 > [ionic Native API - Background Geolocation](https://ionicframework.com/docs/native/background-geolocation)
+
+## 에러
+### 프로젝트 빌드가 안될 경우 재설정해보기
+> ```shell
+> ionic cordova platform rm android
+> ionic cordova platform add android
+> ionic cordova build android
+> ```
+
+### Permission denied
+> Error: EACCES, permission denied 에러 난 경우 권한 주기
+> ```shell
+> cd [해당 프로젝트]
+> sudo chown -R `whoami` .
+> ```
