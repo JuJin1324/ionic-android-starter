@@ -35,28 +35,46 @@
 ## 프로젝트 생성
 ### 웹 프로젝트 생성
 > 프로젝트 담을 디렉터리로 이동 후 다음 명령어 실행: `ionic start [프로젝트 이름] [프로젝트 타입]`  
-> UI 가 기본(empty)인 프로젝트 생성: `ionic start location-ionic-sample blank`
+> UI 가 기본(empty)인 프로젝트 생성: `ionic start sample-project blank`
 
 ### 웹 프로젝트를 안드로이드 프로젝트로 변경
 > android 프로젝트로 변경 [프로젝트를 새로 생성하지 않은 경우 넘어가기]
 > 기존 ionic 웹 프로젝트를 android 프로젝트로 변경
 > ```shell
-> ionic cordova prepare android
+> ionic cordova platform add android
 > ionic cordova build android
 > ```
 
-## 프로젝트 시작
-### npm
-> `npm install` 을 통해서 npm module 가져오기
+## 프로젝트 시작하기
+### 1. npm module 설치
+> 터미널에서 현재 프로젝트로 디렉터리로 이동 후 아래 명령어를 통해서 npm module 설치
+> ```shell
+> npm i
+> ```
 
-### 프로젝트 실행
-> * 안드로이드 기기 목록 보기: `cordova run android --list`  
-> * 안드로이드 실제 기기 목록만 보기: `cordova run android --list --device`  
-> * 안드로이드 가상 디바이스 목록만 보기: `cordova run android --list --emulator`  
-> 
-> PC에 안드로이드 스마트폰을 직접 연결하지 않고 가상 디바이스를 사용하는 경우 `cordova run android --list --emulator` 명령어 실행 후 목록에 아무것도 없으면
-> android studio 를 열어서 android 가상 디바이스를 먼저 실행  
-> 터미널에서 해당 명령어를 통해서 프로젝트 실행: `ionic cordova run android -l`
+### 2. platform 재설정
+> 터미널에서 현재 프로젝트 디렉터리로 이동 후 아래 명령어를 차례로 입력하여 플랫폼 재설정
+> macOS 에서 플랫폼이 정상적으로 설치 되었음에도 에러 메시지가 나오는 경우가 자주 발생함.   
+> `ionic cordova build android` 를 통해서 에러가 없으면 정상 설치된 것으로 간주한다.
+> ```shell
+> ionic cordova platform rm android
+> ionic cordova platform add android
+> ionic cordova build android
+> ```
+
+### 3. 에뮬레이터에서 프로젝트 실행(실제 기기로 실행하는 경우 건너뛰기)
+> * 에뮬레이터 기기 목록 보기: `avdmanager list avd`  
+> * 에뮬레이터 시작하기: `emulator -avd [AVD 이름]`
+> * 프로그램 실행이 가능한 에뮬레이터 목록 보기: `cordova run android --list --emulator`
+> * 로컬 디버깅(liveload 옵션 적용): `ionic cordova run android -l --emulator`
+> * 안드로이드 외부 테스트(liveload 옵션 미적용): `ionic cordova run android --emulator`
+
+### 4. 실제 기기에서 프로젝트 실행(에뮬레이터에서 실행하는 경우 건너뛰기)
+> * 안드로이드 기기 목록 보기: `cordova run android --list --device`
+> * 로컬 디버깅(liveload 옵션 적용): `ionic cordova run android -l`
+> * 안드로이드 외부 테스트(liveload 옵션 미적용): `ionic cordova run android`
+> * 로컬 디버깅(liveload 옵션 적용): `ionic cordova run android -l --device`
+> * 안드로이드 외부 테스트(liveload 옵션 미적용): `ionic cordova run android --device`
 
 ### 참조사이트
 > [ionic - Android Development](https://ionicframework.com/docs/developing/android)
@@ -96,3 +114,7 @@
 > cd [해당 프로젝트]
 > sudo chown -R `whoami` .
 > ```
+
+## 개발 시작하기
+### Page 추가하기
+> ionic g page [페이지 이름]
