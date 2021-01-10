@@ -63,7 +63,7 @@
 > ```
 
 ### 3. 에뮬레이터에서 프로젝트 실행(실제 기기로 실행하는 경우 건너뛰기)
-> * 에뮬레이터 기기 목록 보기: `avdmanager list avd`  
+> * 에뮬레이터 기기 목록 보기: `emulator -list-avds`  
 > * 에뮬레이터 시작하기: `emulator -avd [AVD 이름]`
 > * 프로그램 실행이 가능한 에뮬레이터 목록 보기: `cordova run android --list --emulator`
 > * 로컬 디버깅(liveload 옵션 적용): `ionic cordova run android -l --emulator`
