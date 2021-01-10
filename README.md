@@ -30,6 +30,7 @@
 > export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
 > export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 > export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+> alias emulator="$ANDROID_SDK_ROOT/emulator/emulator"
 > ```
 
 ## 프로젝트 생성
